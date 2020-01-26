@@ -47,3 +47,34 @@ console.log(bound("Japan")); //call the bound function
 
 // returns output as Welcome Suryansh to Japan
  ```
+ 
+ ```javascript
+ (function introduce(name, interest) {
+    console.log('Hi! I\'m '+ name +' and I like '+ interest +'.');
+    console.log('The value of this is '+ this +'.')
+}).bind(window, 'Suryansh', 'Cosmology')();
+
+// Hi! I'm Suryansh and I like Cosmology.
+// The value of this is [object Window].
+ ```
+
+### Changing Context with .call(), .apply() and .bind()
+
+```javascript
+function introduce(name, interest) {
+    console.log('Hi! I\'m '+ name +' and I like '+ interest +'.');
+    console.log('The value of this is '+ this +'.')
+}
+
+introduce('Suryansh', 'Coding'); // the way you usually call it
+introduce.call(window, 'Batman', 'to save Gotham'); // pass the arguments one by one after the contextt
+introduce.apply('Hi', ['Bruce Wayne', 'businesses']); // pass the arguments in an array after the context
+
+// Output:
+// Hi! I'm Suryansh and I like Coding.
+// The value of this is [object Window].
+// Hi! I'm Batman and I like to save Gotham.
+// The value of this is [object Window].
+// Hi! I'm Bruce Wayne and I like businesses.
+// The value of this is Hi.
+```
