@@ -77,4 +77,6 @@ introduce.apply('Hi', ['Bruce Wayne', 'businesses']); // pass the arguments in a
 // The value of this is [object Window].
 // Hi! I'm Bruce Wayne and I like businesses.
 // The value of this is Hi.
+
+// Note [object Window] means Window Object
 ```
